@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>TuneUP</title>
+
+    <link rel="stylesheet" type="text/css" href="tuneup.css">
+
+    	
+<!-- In the head section of your (X)HTML document, type <link rel="icon" href="favicon.ico" type="image/x-icon"/>, where favicon.ico is the name and location of your icon on your server. -->
+
+</head>
+<script>
+     function MyAccountPage() {
+			document.location.href = "MyAccount.php";
+		}
+</script>
+<body>
+
+      <nav>
+        <div class="nav-links">
+          <ul>
+            <li><a href="#header">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#products">PRODUCTS</a></li>
+            <li><a href="#socials">CONTACT US</a></li>
+          </ul>
+        </div>
+      </nav>
+      <br>
+
+
+    <div class = "login" id="login">
+        <h1>Hello, <?php echo $_SESSION['Username']; ?></h1>
+            <p>
+                <a href="MyAccount.php" class="btnStack">My Account</a>
+                <a href="logout.php" class="btnStack">Logout</a>
+                
+            </p>
+    </div>
+
+    <br>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos nesciunt rem laboriosam nobis blanditiis, commodi ex numquam voluptatem sed praesentium possimus quas dolorum alias perspiciatis iste debitis quasi? Eius, dolorum.
+    </p>
+
+    </body>
+
+</html>

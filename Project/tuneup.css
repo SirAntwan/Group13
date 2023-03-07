@@ -1,0 +1,208 @@
+body {
+
+    background-color: #19242c ;
+    color: #fffffd;
+
+}
+
+li a {
+  display: block;
+  color:#fffffd;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #e8673f
+}
+
+
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+  overflow:auto;
+  background-color: #38a16f;
+}
+
+.nav-links ul li {
+  display: inline-block;
+  padding: 8px 12px;
+}
+
+.nav-links ul li a {
+  color: white;
+  font-size: 20px;
+}
+
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background: #fbccbb;
+  transition: 0.5s;
+}
+
+.login {
+    background-color: #38a16f;
+    padding: 10px 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.btnStack {
+  background-color:#e8673f;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+
+
+
+form {
+
+    width: 1000px;
+
+    border: 3px solid rgb(72, 157, 163);
+
+    padding: 20px;
+
+    background: rgb(66, 88, 102);
+
+    border-radius: 20px;
+
+}
+
+/*
+
+h2 {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+input {
+
+    display: block;
+
+    border: 2px solid #ccc;
+
+    width: 95%;
+
+    padding: 10px;
+
+    margin: 10px auto;
+
+    border-radius: 5px;
+
+}
+
+label {
+
+    color: #f1f1f1;
+
+    font-size: 18px;
+
+    padding: 10px;
+
+}
+
+button {
+
+    float: right;
+
+    background: rgb(35, 174, 202);
+
+    padding: 10px 15px;
+
+    color: #fff;
+
+    border-radius: 5px;
+
+    margin-right: 10px;
+
+    border: none;
+
+}
+
+button:hover{
+
+    opacity: .10;
+
+}
+
+.error {
+
+   background: #F2DEDE;
+
+   color: #0c0101;
+
+   padding: 10px;
+
+   width: 95%;
+
+   border-radius: 5px;
+
+   margin: 20px auto;
+
+}
+*/
+
+
+
+/*
+a {
+
+    float: right;
+
+    background: rgb(183, 225, 233);
+
+    padding: 10px 15px;
+
+    color: #fff;
+
+    border-radius: 10px;
+
+    margin-right: 10px;
+
+    border: none;
+
+    text-decoration: none;
+
+}
+
+a:hover{
+
+    opacity: .7;
+
+}
+
+select {
+
+    display: block;
+
+    border: 2px solid #ccc;
+
+    width: 97.5%;
+
+    padding: 10px;
+
+    margin: 10px auto;
+
+    border-radius: 5px;
+
+} */
