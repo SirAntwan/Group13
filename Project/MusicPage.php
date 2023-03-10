@@ -31,17 +31,13 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
         <a href="index.html"><h1>TUNE<b>UP</b></h1></a>
         <div class="nav-links">
           <ul>
-            <li><a href="#header">HOME</a></li>
+            <li><a href="home.php">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#socials">CONTACT US</a></li>
             <li><a href="MusicPage.php">MUSIC DATABASE</a></li>
           </ul>
         </div>
       </nav>
-      <div class = "login" id="login">
-        <h1>Hello, <?php echo $_SESSION['Username']; ?></h1>    
-            <a href="MyAccount.php" class="btnStack">My Account</a>
-            <a href="logout.php" class="btnStack">Logout</a>
             
     </div>
     </section>
