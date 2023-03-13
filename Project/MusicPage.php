@@ -2,6 +2,8 @@
 
 session_start();
 
+include "db_connection.php";
+
 if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESSION['Address'])) {
 
  ?>
@@ -31,18 +33,29 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
         <a href="index.html"><h1>TUNE<b>UP</b></h1></a>
         <div class="nav-links">
           <ul>
-            <li><a href="#header">HOME</a></li>
+            <li><a href="home.php">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#socials">CONTACT US</a></li>
             <li><a href="MusicPage.php">MUSIC DATABASE</a></li>
           </ul>
         </div>
       </nav>
-      <div class = "login" id="login">
-        <h1>Hello, <?php echo $_SESSION['Username']; ?></h1>    
-            <a href="MyAccount.php" class="btnStack">My Account</a>
-            <a href="logout.php" class="btnStack">Logout</a>
-            
+          <body>
+           Enjoy our list of music! <br></br>
+           <?php
+                $sql = "SELECT * FROM logins;";
+                $result = mysqli_query($conn, $sql);
+                $resultCheck = mysqli_num_rows($result);
+
+                if ($resultCheck) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo $row['Username'] . " ";
+                        echo $row['Password'] . " ";
+                        echo $row['UniqueID'] . "<br>";
+                    }
+                }
+            ?>
+    </body>
     </div>
     </section>
     <section class="about" id="about">
