@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TuneUP</title>
-    <link rel="stylesheet" href="tuneup.css" />
+    <link rel="stylesheet" href="home.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600;800&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="icon" href="images/triforce-logo.png" /> -->
+     <link rel="icon" href="images/triforce-logo.png" /> 
   </head>
     <script>
      function MyAccountPage() {
@@ -25,17 +25,24 @@
         <div class="nav-links">
           <ul>
             <li><a href="#header">HOME</a></li>
+            <li><a href = "#login.php">LOGIN</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#socials">CONTACT US</a></li>
+            
           </ul>
         </div>
       </nav>
-      <div class = "login" id="login">
+      <div class = "login_nav" id="login_nav">
         <h1>Hello, <?php echo $_SESSION['Username']; ?></h1>    
             <a href="MyAccount.php" class="btnStack">My Account</a>
             <a href="logout.php" class="btnStack">Logout</a>
+
+
     </div>
+
+    <img src="TuneUP.jpg" alt="Girl in a jacket" width="1980" height="1020a">
     </section>
+  
     <section class="about" id="about">
       <h1>About Us</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat necessitatibus odio, architecto facilis excepturi esse, magnam voluptas delectus nobis voluptatum suscipit tempore earum eius error? Quibusdam quasi maiores facere quam?<br /><br />
