@@ -1,6 +1,6 @@
 body {
 
-    background: #a6e7ae;
+    background: #38a16f;
 
     display: flex;
 
@@ -12,11 +12,37 @@ body {
 
     flex-direction: column;
 
+    padding-top: 50px;
+
 }
 
-*{
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 25px;
+    padding: 10px;
+  }
+  
+  
+  h3 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 10px 0;
+  }
 
-    font-family: cursive;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito Sans", sans-serif;
+    scroll-behavior: smooth;
+  
 
     box-sizing: padding-box;
 
@@ -74,7 +100,7 @@ button {
 
     float: right;
 
-    background: rgb(35, 174, 202);
+    background-color:#ff6071;
 
     padding: 10px 15px;
 
@@ -110,13 +136,7 @@ button:hover{
 
 }
 
-h1 {
 
-    text-align: center;
-
-    color: rgb(243, 10, 10);
-
-}
 
 a {
 
@@ -143,3 +163,4 @@ a:hover{
     opacity: .7;
 
 }
+
