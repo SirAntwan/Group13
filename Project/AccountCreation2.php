@@ -24,11 +24,11 @@ include "db_connection.php";
                 <h2 class="breadcrumbs overalllayoutaligntext">
                     →
                     <span class="currentpagecrumb">New Account</span>
+                    <a href="Index.php">Login Page</a>  
                 </h2>
                 
                 <div id="centralarea">
-                    <div class="userinfosubsection">
-                        
+                    <div class="userinfosubsection"> 
                 
                         
             <form action="signup.php" method="POST">
@@ -55,13 +55,6 @@ include "db_connection.php";
 
                 <label>UniqueID</label>                    
                 <input type="text" name="unique" placeholder="********"><br> 
-
-                <label>Account Type</label>                    
-                <select name="type">
-                    <option value="student">Student</option>
-                    <option value="educator">Educator</option>
-                    <option value="personal">Personal</option>
-                    </select>
         
                 <button type="submit">Create New Account</button>
                             
