@@ -22,10 +22,22 @@ $uname = validate($_POST['uname']);
 $password = validate($_POST['password']);
 $unique = validate($_POST['unique']);
 
+$sql = "SELECT * FROM logins WHERE UniqueID='$unique'";
+
+$result = mysqli_query($conn, $sql);
+
 if (empty($first) || empty($lname) || empty($email) || empty($uname) || empty($password) || empty($unique)) {
     header("Location: AccountCreation2.php?error=Data field(s) missing");
 
     exit();
+} else if (mysqli_num_rows($result) === 1) {
+
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['UniqueID'] === $unique) {
+        header("Location: AccountCreation2.php?error=Unique ID already chosen");
+    }
+
 } else {
 
 

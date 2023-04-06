@@ -14,7 +14,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
 
     <title>My Account</title>
 
-    <link rel="stylesheet" type="text/css" href="Style2.css">
+    <link rel="stylesheet" type="text/css" href="account.css">
 
 </head>
 
