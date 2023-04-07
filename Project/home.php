@@ -31,11 +31,6 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
 
     <!-- <link rel="icon" href="images/triforce-logo.png" /> -->
   </head>
-    <script>
-     function MyAccountPage() {
-			document.location.href = "MyAccount.php";
-		}
-    </script>
   <body>
     <section class="header" id="header">
       <nav class="navbar-static-top navbar-inverse">
@@ -50,6 +45,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
             <li><a href="MusicPage.php">MUSIC DATABASE</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+          <li><a href="MyPlaylist.php"><span class="glyphicon glyphicon-user"></span> My Playlist</a></li>
           <li><a href="AccountCreation2.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="MyAccount.php"><span class="glyphicon glyphicon-log-in"></span> My Account</a></li>
             <button class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-out"></span><a href="index.php"> Logout</a></button>
