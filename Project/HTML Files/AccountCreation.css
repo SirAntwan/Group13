@@ -1,29 +1,25 @@
 body {
 
-    background: #a6e7ae;
-
-    display: flex;
+    background-color: black;
 
     justify-content: center;
 
     align-items: center;
 
-    height: 100vh;
-
-
 }
 
 *{
-
-    font-family: cursive;
-
+    
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito Sans", sans-serif;
+    scroll-behavior: smooth;
     box-sizing: padding-box;
+    
 
 }
 
 form {
-
-    width: 1000px;
 
     border: 3px solid rgb(72, 157, 163);
 
@@ -32,6 +28,14 @@ form {
     background: rgb(66, 88, 102);
 
     border-radius: 20px;
+    
+    justify-content: center;
+
+    align-items: center;
+    
+    margin-left: auto;
+
+    margin-right: auto;
 
 }
 
@@ -39,7 +43,18 @@ h2 {
 
     text-align: center;
 
-    margin-bottom: 40px;
+    background-color: #ff6071;
+
+    border: 3px solid #38a16f;
+
+    border-radius: 25px;
+
+    padding: 20px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
 
 }
 
@@ -89,7 +104,7 @@ button {
 
 button:hover{
 
-    opacity: .10;
+    opacity: .30;
 
 }
 
@@ -106,14 +121,6 @@ button:hover{
    border-radius: 5px;
 
    margin: 20px auto;
-
-}
-
-h1 {
-
-    text-align: center;
-
-    color: rgb(243, 10, 10);
 
 }
 

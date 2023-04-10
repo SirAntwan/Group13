@@ -16,18 +16,44 @@ body {
 
 }
 
+h2 {
+
+    text-align: center;
+
+    background-color: #ff6071;
+
+    border: 3px solid #38a16f;
+
+    border-radius: 25px;
+
+    padding: 20px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+
+}
+
   h1 {
     font-size: 40px;
     font-weight: 600;
   }
   
-  p {
-    font-size: 25px;
-    font-weight: 200;
+.account-creation {
+
+    font-size: 20px;
+
     line-height: 25px;
-    padding: 10px;
-  }
-  
+
+    background-color: #ff6071;
+
+    border: 3px solid #38a16f;
+
+    border-radius: 25px;
+
+    padding: 20px;
+}
   
   h3 {
     text-align: center;
@@ -39,8 +65,11 @@ body {
 
 * {
     margin: 0;
+
     padding: 0;
+
     font-family: "Nunito Sans", sans-serif;
+
     scroll-behavior: smooth;
   
 
@@ -116,7 +145,7 @@ button {
 
 button:hover{
 
-    opacity: .10;
+    opacity: .30;
 
 }
 
