@@ -181,6 +181,10 @@ body {
       background: rgb(66, 88, 102);
   
       border-radius: 20px;
+
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
   
   }
   

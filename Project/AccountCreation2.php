@@ -41,30 +41,33 @@ include "db_connection.php";
                     
                 </h2>
                 <form action="signup.php" method="POST">
-                    <?php if (isset($_GET['error'])) { ?>
-                        <p class="error"><?php echo $_GET['error']; ?></p>
-                        <?php } ?>
-                        <label>First Name</label>
-                        <input type="text" name="fname" placeholder="John"><br>
+                
+            <?php if (isset($_GET['error'])) { ?>
 
-                        <label>Last Name</label>
-                        <input type="text" name="lname" placeholder="Schmidt"><br>
+                <p class="error"><?php echo $_GET['error']; ?></p>
 
-                        <label>Email</label>
-                        <input type="text" name="email" placeholder="jschmidt@gmail.com"><br>
+                <?php } ?>
+                <label>First Name</label>
+                <input type="text" name="fname" placeholder="John"><br>
 
-                        <label>User Name</label>                    
-                        <input type="text" name="uname" placeholder="Username"><br>
+                <label>Last Name</label>
+                <input type="text" name="lname" placeholder="Schmidt"><br>
+
+                <label>email</label>
+                <input type="text" name="email" placeholder="jschmidt@gmail.com"><br>
+
+                <label>User Name</label>                    
+                <input type="text" name="uname" placeholder="Username"><br>
         
-                        <label>Password</label>                    
-                        <input type="password" name="password" placeholder="********"><br> 
+                <label>Password</label>                    
+                <input type="password" name="password" placeholder="********"><br> 
 
-                        <label>UniqueID</label>                    
-                        <input type="text" name="unique" placeholder="********"><br> 
-
-                        
-                    </form>
-                    <button class = btn-lg type="submit">Create New Account</button>
+                <label>UniqueID</label>                    
+                <input type="text" name="unique" placeholder="********"><br> 
+        
+                <button type="submit">Create New Account</button>
+                            
+                        </form>
                 </div>
                     
                 </body>

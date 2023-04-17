@@ -5,7 +5,7 @@ session_start();
 
 include "db_connection.php";
 
-if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESSION['Address'])) {
+if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESSION['Address']) && isset($_SESSION['UniqueID'])) {
   
  ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
     <title>TuneUP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="musicpage.css" />
+    <link rel="stylesheet" href="musicpage1.css" />
 
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -56,87 +56,114 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
       </nav>
     </section>
     <div class="container-fluid" id = "welcome">
-        <h1>MUSIC DATABASE</h1>  
+
+    <h1>USERS</h1>
         <form method="POST">
-        <input type="text" name="Search" placeholder="Search">
-        <button type="submit" name="submit-search">Search</button>
+        
 </form>
+    </div>
+    <body>
+    <table>
+           <tr>
+           <form method="post">
+    <th><input type="submit" type="submit" name="Username" class="button" value="Username       " /></th>
+    <th><input type="submit" type="submit" name="Email" class="button" value="Email                " /></th>
+    <th><input type="submit" type="submit" name="Select" class="button" value="Choose" /></th>
+<?php
+    $pUsername = null;
+    if ($_POST['Username'] != null){
+      $sql2 = "SELECT * FROM logins ORDER BY Username"; 
+    } else if ($_POST['Email'] != null) {
+      $sql2 = "SELECT * FROM logins ORDER BY Address"; 
+    } else {
+      $sql2 = "SELECT * FROM logins"; 
+    }
+    
+    $result = mysqli_query($conn, $sql2);
+                  $resultCheck = mysqli_num_rows($result);
+                
+                if ($resultCheck) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $username = $row['Username'];
+                      $Address = $row['Address'];
+                      $userID = $row['UniqueID']
+                      ?>
+  <tr>
+    <td><?php echo $username . " "; ?></td>
+    <td><?php echo $Address . " "; ?></td>
+    <td><form method="POST">
+    <input type="submit" type="submit" name=<?php echo $userID?> class="button" value="Select">
+    <?php
+        if ($_POST[$userID] != null){
+            $pUsername = $username;
+            $id = $userID;
+            $_POST['Select'] = null;
+            
+        }
+        ?>
+    </form>
+  <?php
+}
+  }
+  
+
+  ?>
+</td>
+  </tr>
+  </tr>
+  </form>
+</table>
+</body>
+
+    
+    <div class="container-fluid" id = "welcome">
+
+    <h1><?php echo $pUsername;?> Playlist</h1>
     </div>
       <body>     
            <table>
            <tr>
            <form method="post">
-           <th><input type="submit" type="submit" name="title" class="button" value="Title    " /></th>
+    <th><input type="submit" type="submit" name="title" class="button" value="Title    " /></th>
     <th><input type="submit" type="submit" name="Artist" class="button" value="Artist    " /></th>
     <th><input type="submit" type="submit" name="Rating" class="button" value="Rating    " /></th>
     <th><input type="submit" type="submit" name="Release" class="button" value="Release Date (Year)" /></th>
     <th><input type="submit" type="submit" name="Length" class="button" value="Length (Minutes)" /></th>
     <th><input type="submit" type="submit" name="Genre" class="button" value="Genre      " /></th>
-    <th><input type="submit" type="submit" name="add" class="button" value="Add" /></th>
   
   </tr>
   </form>
   <?php
-                $id = $_SESSION['UniqueID']; 
+                
                 if ($_POST['title'] != null){
-                  $sql = "SELECT * FROM songs ORDER BY songName"; 
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY songName"; 
                 } else if ($_POST['Artist'] != null) {
-                  $sql = "SELECT * FROM songs ORDER BY artist";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY artist";
                 } else if ($_POST['Rating'] != null) {
-                  $sql = "SELECT * FROM songs ORDER BY ratings DESC";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY ratings DESC";
                 } else if ($_POST['Release'] != null) {
-                  $sql = "SELECT * FROM songs ORDER BY releaseYear";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY releaseYear";
                 } else if ($_POST['Length'] != null) {
-                  $sql = "SELECT * FROM songs ORDER BY songLength";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY songLength";
                 } else if ($_POST['Genre'] != null) {
-                  $sql = "SELECT * FROM songs ORDER BY genre";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY genre";
                 } else {
-                  $sql = "SELECT * FROM songs"; 
-                }
-                if (isset($_POST['submit-search'])) {
-                  $search = $_POST['Search'];
-                  $sql = "SELECT * FROM songs WHERE songName LIKE '%$search%' OR artist LIKE '%$search%' OR ratings LIKE '%$search%' 
-                    OR releaseYear LIKE '%$search%' OR songLength LIKE '%$search%' OR genre LIKE '%$search%';";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id'"; 
                 }
                   $result = mysqli_query($conn, $sql);
                   $resultCheck = mysqli_num_rows($result);
                 
                 if ($resultCheck) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                      $songName = $row['songName'];
-                      $artist = $row['artist'];
-                      $ratings = $row['ratings'];
-                      $releaseYear = $row['releaseYear'];
-                      $songLength = $row['songLength'];
-                      $genre = $row['genre'];
-                      $songID = $row['songID'];
                       ?>
   <tr>
-    <td><?php echo $songName . " "; ?></td>
-    <td><?php echo $artist . " "; ?></td>
-    <td><?php echo $ratings . " "; ?></td>
-    <td><?php echo $releaseYear . " "; ?></td>
-    <td><?php echo $songLength . " "; ?></td>
-    <td><?php echo $genre . " "; ?>
-    <td><form method="POST">
-      <input type="submit" type="submit" name=<?php echo $songID?> class="button" value="    +    ">
-      <?php
-          if ($_POST[$songID] != null){
-
-              $sql = "INSERT INTO `playlist` (`songID`, `userID`) VALUES ('$songID', '$id')";
-              mysqli_query($conn, $sql);
-              $_POST['add'] = null;
-              
-          }
-          ?>
-      </form>
-    <?php
-  }
-    }
-    
-
-    ?>
-</td>
+    <td><?php echo $row['songName'] . " "; ?></td>
+    <td><?php echo $row['artist'] . " "; ?></td>
+    <td><?php echo $row['ratings'] . " "; ?></td>
+    <td><?php echo $row['releaseYear'] . " "; ?></td>
+    <td><?php echo $row['songLength'] . " "; ?></td>
+    <td><?php echo $row['genre'] . " "; }
+    }?></td>
   </tr>
   
 </table>

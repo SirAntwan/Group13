@@ -12,7 +12,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
     <title>TuneUP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Homepage.css" />
+    <link rel="stylesheet" href="homepage.css" />
 
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -45,8 +45,8 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
             <li><a href="MusicPage.php">MUSIC DATABASE</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+          <li><a href="UserPlaylist.php"><span class="glyphicon glyphicon-user"></span> Other Users</a></li>
           <li><a href="MyPlaylist.php"><span class="glyphicon glyphicon-user"></span> My Playlist</a></li>
-          <li><a href="AccountCreation2.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="MyAccount.php"><span class="glyphicon glyphicon-log-in"></span> My Account</a></li>
             <button class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-out"></span><a href="index.php"> Logout</a></button>
           </ul>
@@ -101,7 +101,13 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
 <!-- About Us/Contact us -->    
     <section class="about" id="about">
       <h1>About Us</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat necessitatibus odio, architecto facilis excepturi esse, magnam voluptas delectus nobis voluptatum suscipit tempore earum eius error? Quibusdam quasi maiores facere quam?<br /><br />
+      <p>Welcome to TuneUP, the music social media app designed for music enthusiasts like you! Our app was created by a team of music lovers who wanted to create a platform where people could connect over their shared love of music.<br><br>
+        
+        We believe that music is more than just entertainment - it's a way of life. It has the power to inspire, unite, and transform us in ways that nothing else can. With TuneUP, we aim to make it easy for you to discover new music, connect with other music fans, and share your passion for music with the world.<br><br>
+        
+        Our team is made up of experienced developers, designers, and music industry professionals who understand the unique needs of music fans. We have created an app that is user-friendly and intuitive, with features that allow you to easily connect with other music fans, discover new music, and stay up-to-date with the latest trends in the music world.<br><br>
+        
+        At TuneUP, we are dedicated to creating a community of music lovers who can come together to share their love of music. Whether you're a fan of pop, rock, hip hop, or any other genre, there is a place for you on TuneUP. We believe that music has the power to bring people together and we're excited to be a part of that journey with you!
       </p>
     </section>
     <hr />
