@@ -110,15 +110,16 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                       $songLength = $row['songLength'];
                       $genre = $row['genre'];
                       $songID = $row['songID'];
+                      $link = "location.href='song.php?id=" . $songID . "'";
                       ?>
   <tr>
-    <td><?php echo $songName . " "; ?></td>
-    <td><?php echo $artist . " "; ?></td>
-    <td><?php echo $ratings . " "; ?></td>
-    <td><?php echo $releaseYear . " "; ?></td>
-    <td><?php echo $songLength . " "; ?></td>
-    <td><?php echo $genre . " "; ?>
-    <td><form method="POST">
+    <td onclick="<?php echo $link?>"><?php echo $songName . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $artist . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $ratings . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $releaseYear . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $songLength . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $genre . " "; ?>
+    <td onclick="<?php echo $link?>"><form method="POST">
       <input type="submit" type="submit" name=<?php echo $songID?> class="button" value="    +    ">
       <?php
           if ($_POST[$songID] != null){
