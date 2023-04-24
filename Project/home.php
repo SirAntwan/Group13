@@ -42,11 +42,12 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
             <li class="active"><a href="#">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#socials">CONTACT US</a></li>
-            <li><a href="MusicPage.php">MUSIC DATABASE</a></li>
+            <li><a href="MusicPage.php"><span class="glyphicon glyphicon-music"></span> SONGS </a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li><a href="UserPlaylist.php"><span class="glyphicon glyphicon-user"></span> Other Users</a></li>
-          <li><a href="MyPlaylist.php"><span class="glyphicon glyphicon-user"></span> My Playlist</a></li>
+          <li><a href="UserPlaylist.php"><span class="glyphicon glyphicon-user"></span> Find Other Users</a></li>
+          <li><a href="MyPlaylists.php"><span class="glyphicon glyphicon-th-list"></span> My Playlists</a></li>
+          <li><a href="NewPlaylist.php"><span class="glyphicon glyphicon-pencil"></span> New Playlist</a></li>
             <li><a href="MyAccount.php"><span class="glyphicon glyphicon-log-in"></span> My Account</a></li>
             <button class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-out"></span><a href="index.php"> Logout</a></button>
           </ul>

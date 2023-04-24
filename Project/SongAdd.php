@@ -1,3 +1,4 @@
+
 <?php error_reporting(0); ?> 
 <?php 
 
@@ -56,71 +57,26 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
         </div>
       </nav>
     </section>
+
+    
     <div class="container-fluid" id = "welcome">
 
-    <h1>USERS</h1>
-        <form method="POST">
-        
-</form>
-    </div>
-    <body>
-    <table>
-           <tr>
-           <form method="post">
-    <th><input type="submit" type="submit" name="Username" class="button" value="Username       " /></th>
-    <th><input type="submit" type="submit" name="Email" class="button" value="Email                " /></th>
-    <th><input type="submit" type="submit" name="Select" class="button" value="Choose" /></th>
-<?php
-    $pUsername = null;
-    $currUsername = $_SESSION['Username'];
-    if ($_POST['Username'] != null){
-      $sql2 = "SELECT * FROM logins WHERE Username <> '$currUsername' ORDER BY Username"; 
-    } else if ($_POST['Email'] != null) {
-      $sql2 = "SELECT * FROM logins WHERE Username <> '$currUsername' ORDER BY Address"; 
-    } else {
-      $sql2 = "SELECT * FROM logins WHERE Username <> '$currUsername'"; 
-    }
-    
-    $result = mysqli_query($conn, $sql2);
-                  $resultCheck = mysqli_num_rows($result);
-                
-                if ($resultCheck) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      $username = $row['Username'];
-                      $Address = $row['Address'];
-                      $userID = $row['UniqueID']
-                      ?>
-  <tr>
-    <td><?php echo $username . " "; ?></td>
-    <td><?php echo $Address . " "; ?></td>
-    <td><form method="POST">
-    <input type="submit" type="submit" name=<?php echo $userID?> class="button" value="Select">
     <?php
-        if ($_POST[$userID] != null){
-            $pUsername = $username;
-            $id = $userID;
-            $_POST['Select'] = null;
-            
-        }
-        ?>
-    </form>
-  <?php
-}
-  }
-  
+                if (isset($_GET['id'])) {
+                    $songID = $_GET['id'];
+                } else {
+                    header("Location: home.php");
+                }
 
-  ?>
-</td>
-  </tr>
-  </tr>
-  </form>
-</table>
-</body>
+                $sql = "SELECT * FROM songs WHERE songID LIKE '%$songID%';";
+                $result = mysqli_query($conn, $sql);
+                $resultCheck = mysqli_num_rows($result);
+                if ($resultCheck) {
+                    $row = mysqli_fetch_assoc($result);
+                }
+    ?>
 
-    
-    <div class="container-fluid" id = "welcome">
-
-    <h1><?php echo $pUsername ?>'s Playlists</h1>
+    <h1>Add "<?php echo $row['songName']?>" To Which Of <?php echo $_SESSION['Username']?>'s Playlists?</h1>
     </div>
       <body>     
            <table>
@@ -128,16 +84,18 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
            <form method="post">
     <th><input type="submit" type="submit" name="Name" class="button" value="Name    " /></th>
     <th><input type="submit" type="submit" name="Description" class="button" value="Description    " /></th>
+    <th><input type="submit" type="submit" name="Description" class="button" value="Add    " /></th>
   
   </tr>
   </form>
   <?php
+                $id = $_SESSION['UniqueID'];
                 if ($_POST['Name'] != null){
-                  $sql = "SELECT * FROM playlists WHERE userID = '$id' ORDER BY name public = TRUE"; 
+                  $sql = "SELECT * FROM playlists WHERE userID = '$id' ORDER BY name"; 
                 } else if ($_POST['Description'] != null) {
-                  $sql = "SELECT * FROM playlists WHERE userID = '$id' ORDER BY description public = TRUE";
+                  $sql = "SELECT * FROM playlists WHERE userID = '$id' ORDER BY description";
                 } else {
-                  $sql = "SELECT * FROM playlists WHERE userID = '$id' AND public = TRUE"; 
+                  $sql = "SELECT * FROM playlists WHERE userID = '$id'"; 
                 }
                   $result = mysqli_query($conn, $sql);
                   $resultCheck = mysqli_num_rows($result);
@@ -146,12 +104,28 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                 if ($resultCheck) {
                     while ($row = mysqli_fetch_assoc($result)) {
                       $link = "location.href='playlist.php?id=" . $row['playlistID'] . "'";
+                      $playlistID = $row['playlistID'];
                       ?>
   <tr>
     <td onclick="<?php echo $link?>"><?php echo $row['name'] . " "; ?></td>
-    <td onclick="<?php echo $link?>"><?php echo $row['description'] . " ";
- }
+    <td onclick="<?php echo $link?>"><?php echo $row['description'] . " ";?>
+    <td><form method="POST">
+        <input type="submit" type="submit" name=<?php echo $playlistID?> class="button" value="    +    ">
+        <?php
+          if ($_POST[$playlistID] != null){
+
+            $sql = "INSERT INTO `playlist` (`songID`, `userID`, `playlistID`) VALUES ('$songID', '$id', '$playlistID')";
+            //   ;
+            if (mysqli_query($conn, $sql)) {
+                header("Location: MusicPage.php");
+            }
+          }
+          ?>
+    </form>
+ <?php }
     }?></td>
+    
+    </td>
   </tr>
   
 </table>

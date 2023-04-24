@@ -44,11 +44,12 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
             <li class="active"><a href="home.php">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#socials">CONTACT US</a></li>
-            <li><a href="MusicPage.php">MUSIC DATABASE</a></li>
+            <li><a href="MusicPage.php"><span class="glyphicon glyphicon-music"></span> SONGS </a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li><a href="UserPlaylist.php"><span class="glyphicon glyphicon-user"></span> Other Users</a></li>
-          <li><a href="MyPlaylist.php"><span class="glyphicon glyphicon-user"></span> My Playlist</a></li>
+          <li><a href="UserPlaylist.php"><span class="glyphicon glyphicon-user"></span> Find Other Users</a></li>
+          <li><a href="MyPlaylists.php"><span class="glyphicon glyphicon-th-list"></span> My Playlists</a></li>
+          <li><a href="NewPlaylist.php"><span class="glyphicon glyphicon-pencil"></span> New Playlist</a></li>
             <li><a href="MyAccount.php"><span class="glyphicon glyphicon-log-in"></span> My Account</a></li>
             <button class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-out"></span><a href="index.php"> Logout</a></button>
           </ul>
@@ -56,7 +57,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
       </nav>
     </section>
     <div class="container-fluid" id = "welcome">
-        <h1>MUSIC DATABASE</h1>  
+        <h1>SONGS</h1>  
         <form method="POST">
         <input type="text" name="Search" placeholder="Search">
         <button type="submit" name="submit-search">Search</button>
@@ -110,25 +111,20 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                       $songLength = $row['songLength'];
                       $genre = $row['genre'];
                       $songID = $row['songID'];
+                      $link = "location.href='song.php?id=" . $songID . "'";
                       ?>
   <tr>
-    <td><?php echo $songName . " "; ?></td>
-    <td><?php echo $artist . " "; ?></td>
-    <td><?php echo $ratings . " "; ?></td>
-    <td><?php echo $releaseYear . " "; ?></td>
-    <td><?php echo $songLength . " "; ?></td>
-    <td><?php echo $genre . " "; ?>
-    <td><form method="POST">
-      <input type="submit" type="submit" name=<?php echo $songID?> class="button" value="    +    ">
-      <?php
-          if ($_POST[$songID] != null){
+    <td onclick="<?php echo $link?>"><?php echo $songName . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $artist . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $ratings . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $releaseYear . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $songLength . " "; ?></td>
+    <td onclick="<?php echo $link?>"><?php echo $genre . " "; ?>
+    <td>
 
-              $sql = "INSERT INTO `playlist` (`songID`, `userID`) VALUES ('$songID', '$id')";
-              mysqli_query($conn, $sql);
-              $_POST['add'] = null;
-              
-          }
-          ?>
+      <form method="GET" action="SongAdd.php">
+        <input type=hidden name=id value =<?php echo $songID?>>
+        <input type="submit" type="submit" class="button" value="    +    ">
       </form>
     <?php
   }
