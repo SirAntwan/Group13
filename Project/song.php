@@ -44,7 +44,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
     
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="Account2.css">
+    <link rel="stylesheet" type="text/css" href="Account3.css">
 
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -76,7 +76,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                         
                         <div class="userinfotable inputcontainer">
                             <div>
-                                <img src="<?php echo $album?>" alt="<?php echo $album?>" height="400" width="400">
+                                <img src="./image/<?php echo $album?>" alt="<?php echo $album?>" height="400" width="400">
                             </div>
                             <div>
                                 <label class="columnname">Title:</label>
@@ -103,7 +103,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                             </div>
                 
                             <div>
-                                <label class="columnname">Length (Minutes):</label>
+                                <label class="columnname">Length (Seconds):</label>
                                 <input name="username" type="text" size="30" value="<?php echo $songLength?>" readonly="readonly">
                                 
                                 

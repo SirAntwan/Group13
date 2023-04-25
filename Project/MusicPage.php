@@ -67,11 +67,12 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
            <table>
            <tr>
            <form method="post">
+           <th><input type="submit" type="submit" name="Artist" class="button" value="Album" /></th>
            <th><input type="submit" type="submit" name="title" class="button" value="Title    " /></th>
     <th><input type="submit" type="submit" name="Artist" class="button" value="Artist    " /></th>
     <th><input type="submit" type="submit" name="Rating" class="button" value="Rating    " /></th>
     <th><input type="submit" type="submit" name="Release" class="button" value="Release Date (Year)" /></th>
-    <th><input type="submit" type="submit" name="Length" class="button" value="Length (Minutes)" /></th>
+    <th><input type="submit" type="submit" name="Length" class="button" value="Length (Seconds)" /></th>
     <th><input type="submit" type="submit" name="Genre" class="button" value="Genre      " /></th>
     <th><input type="submit" type="submit" name="add" class="button" value="Add" /></th>
   
@@ -114,6 +115,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                       $link = "location.href='song.php?id=" . $songID . "'";
                       ?>
   <tr>
+  <td> <?php echo '<img src="./image/'.$row['album'].'" width=40 height=40>'?></td>
     <td onclick="<?php echo $link?>"><?php echo $songName . " "; ?></td>
     <td onclick="<?php echo $link?>"><?php echo $artist . " "; ?></td>
     <td onclick="<?php echo $link?>"><?php echo $ratings . " "; ?></td>
