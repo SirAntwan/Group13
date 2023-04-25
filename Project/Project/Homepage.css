@@ -1,0 +1,311 @@
+/* Styling for TuneUP Site */
+
+body {
+  
+  background-color: #ff6071;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito Sans", sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+/*   .header {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #19242c;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+  } */
+  
+  nav {
+    display: flex;
+    padding: 1%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  
+  .about {
+      width: 95%;
+      margin: auto;
+      margin-bottom: 75px;
+      text-align: center;
+      padding-top: 100px;
+    }
+  
+  
+  @media (min-width: 1401px) {
+    .about {
+      width: 50%;
+      margin: auto;
+      margin-bottom: 75px;
+      text-align: center;
+      padding-top: 100px;
+    }
+  }
+
+  #welcome {
+    background-color:#ff6071;
+  }
+
+  #godown{
+   height: 300px;
+}
+
+  
+  .btnStack {
+    background-color:#ff6071;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .login{
+      color: aliceblue;
+      text-align: center;
+      background-color: #38a16f;
+      padding: 10px 10px;
+      text-align: center;
+      justify-content: center;;
+  }
+  
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 25px;
+    
+  }
+  
+  
+  h3 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .socials {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+  }
+  
+  .socials h1 {
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+  }
+  
+  .social-links {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .social-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 20px 50px;
+    padding-bottom: 60px;
+    position: relative;
+  }
+  
+  .social-links ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .social-links ul li::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    background: lightseagreen;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+  }
+  
+  .social-links ul li:hover::after {
+    width: 100%;
+  }
+  
+  .social-links a:visited {
+    color: pink;
+  }
+  
+  
+  
+  form {
+  
+      width: 1000px;
+  
+      border: 3px solid rgb(72, 157, 163);
+  
+      padding: 20px;
+  
+      background: rgb(66, 88, 102);
+  
+      border-radius: 20px;
+
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+  
+  }
+  
+  /*
+  
+  h2 {
+  
+      text-align: center;
+  
+      margin-bottom: 40px;
+  
+  }
+  
+  input {
+  
+      display: block;
+  
+      border: 2px solid #ccc;
+  
+      width: 95%;
+  
+      padding: 10px;
+  
+      margin: 10px auto;
+  
+      border-radius: 5px;
+  
+  }
+  
+  label {
+  
+      color: #f1f1f1;
+  
+      font-size: 18px;
+  
+      padding: 10px;
+  
+  }
+  
+  button {
+  
+      float: right;
+  
+      background: rgb(35, 174, 202);
+  
+      padding: 10px 15px;
+  
+      color: #fff;
+  
+      border-radius: 5px;
+  
+      margin-right: 10px;
+  
+      border: none;
+  
+  }
+  
+  button:hover{
+  
+      opacity: .10;
+  
+  }
+  
+  .error {
+  
+     background: #F2DEDE;
+  
+     color: #0c0101;
+  
+     padding: 10px;
+  
+     width: 95%;
+  
+     border-radius: 5px;
+  
+     margin: 20px auto;
+  
+  }
+  */
+  
+  
+  
+  /*
+  a {
+  
+      float: right;
+  
+      background: rgb(183, 225, 233);
+  
+      padding: 10px 15px;
+  
+      color: #fff;
+  
+      border-radius: 10px;
+  
+      margin-right: 10px;
+  
+      border: none;
+  
+      text-decoration: none;
+  
+  }
+  
+  a:hover{
+  
+      opacity: .7;
+  
+  }
+  
+  select {
+  
+      display: block;
+  
+      border: 2px solid #ccc;
+  
+      width: 97.5%;
+  
+      padding: 10px;
+  
+      margin: 10px auto;
+  
+      border-radius: 5px;
+  
+  } */
