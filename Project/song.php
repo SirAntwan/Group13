@@ -33,6 +33,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                       $songLength = $row['songLength'];
                       $genre = $row['genre'];
                       $album = $row['album'];
+                      $audio = $row['audio'];
                     }
                 }
                       ?>
@@ -44,7 +45,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
     
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="Account3.css">
+    <link rel="stylesheet" type="text/css" href="song.css">
 
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -67,7 +68,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
 <div class = "container-fluid">
 
     <h1>
-        <a href="home.php" class="glyphicon glyphicon-cd"> HOME</a>
+        <a href="MusicPage.php" class="glyphicon glyphicon-cd"> SONGS</a>
         <span class="text-center"><?php echo $songName?></span>
     </h1>
                         
@@ -75,8 +76,11 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                         <form>
                         
                         <div class="userinfotable inputcontainer">
-                            <div>
-                                <img src="./image/<?php echo $album?>" alt="<?php echo $album?>" height="400" width="400">
+                        <div align="center">
+                                <img src="./image/<?php echo $album?>" alt="<?php echo $album?>" height="300" width="300">
+                                <audio controls>
+                                    <source src="./songs/<?php echo $audio?>" type="audio/mpeg">
+                                </audio>
                             </div>
                             <div>
                                 <label class="columnname">Title:</label>

@@ -19,7 +19,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Account3.css" />
+    <link rel="stylesheet" href="newplaylist.css" />
 
 
     <!-- BootStrap -->

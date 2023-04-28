@@ -1,0 +1,307 @@
+body {
+
+    background: #38a16f;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 100vh;
+
+    flex-direction: column;
+
+    padding-top: 50px;
+
+}
+
+
+
+audio {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+margin-left: auto;
+}
+
+.audio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  .centered-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+  }
+
+a::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    background: lightseagreen;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.text-center {
+    margin-left: 190px;
+}
+
+.glyphicon {
+    margin-top: -10px;
+}
+
+
+  h1 {
+    
+    text-align: center;
+
+    background-color: #ff6071;
+
+    border: 3px solid #38a16f;
+
+    border-radius: 25px;
+
+    padding: 20px;
+
+  }
+  
+.account-creation {
+
+    font-size: 20px;
+
+    line-height: 25px;
+
+    background-color: #ff6071;
+
+    border: 3px solid #38a16f;
+
+    border-radius: 25px;
+
+    padding: 20px;
+}
+  
+
+h2 {
+
+    text-align: center;
+
+    background-color: #ff6071;
+
+    border: 3px solid #38a16f;
+
+    border-radius: 25px;
+
+    padding: 20px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+
+}
+  h3 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 10px 0;
+  }
+
+
+* {
+    margin: 0;
+
+    padding: 0;
+
+    font-family: "Nunito Sans", sans-serif;
+
+    scroll-behavior: smooth;
+  
+
+    box-sizing: padding-box;
+
+}
+
+
+
+form {
+
+
+    width: 900px;
+
+    height: 88%; 
+
+    border: 3px solid rgb(72, 157, 163);
+
+    padding: 20px;
+
+    background: rgb(66, 88, 102);
+
+    border-radius: 0px;
+
+
+}
+
+h2 {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+input {
+
+    display: block;
+
+    border: 2px solid #ccc;
+
+    width: 95%;
+
+    padding: 5px;
+
+
+
+}
+
+label {
+
+    color: #f1f1f1;
+
+    font-size: 18px;
+
+    padding: 5px;
+
+}
+
+button {
+
+    float: right;
+
+    background-color:#ff6071;
+
+    padding: 10px 15px;
+
+    color: #fff;
+
+    border-radius: 5px;
+
+    margin-right: 10px;
+
+    border: none;
+
+}
+
+button:hover{
+
+    opacity: .30;
+
+}
+
+.error {
+
+   background: #F2DEDE;
+
+   color: #0c0101;
+
+   padding: 10px;
+
+   width: 95%;
+
+   border-radius: 5px;
+
+   margin: 20px auto;
+
+}
+
+
+
+a {
+
+    float: right;
+
+    background: rgb(0, 0, 0);
+
+    padding: 10px 15px;
+
+    color: #fff;
+
+    border-radius: 10px;
+
+    margin-right: 10px;
+
+    border: none;
+
+    text-decoration: none;
+
+}
+
+a:hover{
+
+    opacity: .7;
+
+}
+
+
+img {
+    display: block;
+
+    border: 2px solid #ccc;
+
+
+
+    margin: 10px auto;
+
+    border-radius: 5px;
+}
+
+/* TOGGLE STYLING */
+.toggle {
+	margin: 0 0 1.5rem; box-sizing: border-box;
+	font-size: 0;
+	display: flex; flex-flow: row nowrap;
+	justify-content: flex-start; align-items: stretch;
+	input {@include hideInput;}
+	input + label {
+		margin: 0; padding: .75rem 2rem; box-sizing: border-box;
+		position: relative; display: inline-block;
+		border: solid 1px #DDD; background-color: #FFF;
+		font-size: 1rem; line-height: 140%; font-weight: 600; text-align: center;
+		box-shadow: 0 0 0 rgba(255,255,255,0);
+		transition: 	border-color .15s ease-out, 
+					color .25s ease-out, 
+					background-color .15s ease-out,
+					box-shadow .15s ease-out;
+		
+		/* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+		/*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
+		/* ----- */
+		
+		&:first-of-type {border-radius: 6px 0 0 6px; border-right: none;}
+		&:last-of-type {border-radius: 0 6px 6px 0; border-left: none;}
+	}
+	input:hover + label {border-color: $darkNavy;}
+	input:checked + label {
+		background-color: $teal2;
+		color: #FFF;
+		box-shadow: $activeShadow;
+		border-color: $teal2;
+		z-index: 1;
+	}
+	input:focus + label {@include focusOutline;}
+
+	@include breakpoint(800) {
+		input + label {
+			padding: .75rem .25rem;
+			flex: 0 0 50%;
+			display: flex; justify-content: center; align-items: center;
+		}
+	}
+}
