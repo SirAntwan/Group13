@@ -63,7 +63,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
 
 </head>
 
-<body style="background-color:#212529;">
+<body style="background-color:#212529; padding-top: 150px;">
    
 <div class = "container-fluid">
 
