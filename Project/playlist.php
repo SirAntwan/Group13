@@ -74,6 +74,7 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
       if ($row = mysqli_fetch_assoc($result)) {
         $playlistName = $row['name'];
         $playlistDesc = $row['description'];
+        $playlistID = $row['playlistID'];
       }
     }
 ?>
@@ -96,22 +97,23 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
     <th><input type="submit" type="submit" name="Release" class="button" value="Release Date (Year)" /></th>
     <th><input type="submit" type="submit" name="Length" class="button" value="Length (Seconds)" /></th>
     <th><input type="submit" type="submit" name="Genre" class="button" value="Genre      " /></th>
+    <th><input type="submit" type="submit" name="add" class="button" value="Delete" /></th>
   
   </tr>
   </form>
   <?php
                 if ($_POST['title'] != null){
-                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY songName"; 
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.playlistID = '$id' ORDER BY songName"; 
                 } else if ($_POST['Artist'] != null) {
-                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY artist";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.playlistID = '$id' ORDER BY artist";
                 } else if ($_POST['Rating'] != null) {
-                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY ratings DESC";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.playlistID = '$id' ORDER BY ratings DESC";
                 } else if ($_POST['Release'] != null) {
-                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY releaseYear";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.playlistID = '$id' ORDER BY releaseYear";
                 } else if ($_POST['Length'] != null) {
-                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY songLength";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.playlistID = '$id' ORDER BY songLength";
                 } else if ($_POST['Genre'] != null) {
-                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.userID = '$id' ORDER BY genre";
+                  $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.playlistID = '$id' ORDER BY genre";
                 } else {
                   $sql = "SELECT * FROM songs JOIN playlist ON songs.songID=playlist.songID AND playlist.playlistID = '$id'"; 
                 }
@@ -127,6 +129,8 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
                 if ($resultCheck) {
                     while ($row = mysqli_fetch_assoc($result)) {
                       $link = "location.href='song.php?id=" . $row['songID'] . "'";
+                      $songID =  $row['songID'];
+                      $id = $_SESSION['UniqueID'];
                       ?>
   <tr>
   <td> <?php echo '<img src="./image/'.$row['album'].'" width=40 height=40>'?></td>
@@ -135,8 +139,21 @@ if (isset($_SESSION['UniqueID']) && isset($_SESSION['Username']) && isset($_SESS
     <td onclick="<?php echo $link?>"><?php echo $row['ratings'] . " "; ?></td>
     <td onclick="<?php echo $link?>"><?php echo $row['releaseYear'] . " "; ?></td>
     <td onclick="<?php echo $link?>"><?php echo $row['songLength'] . " "; ?></td>
-    <td onclick="<?php echo $link?>"><?php echo $row['genre'] . " "; }
-    }?></td>
+    <td onclick="<?php echo $link?>"><?php echo $row['genre'] . " "; ?></td>
+    <td><form method="POST">
+      <input type="submit" type="submit" name=<?php echo $songID?> class="button" value="    -    ">
+      <?php
+          if ($_POST[$songID] != null){
+              $sql = "DELETE FROM `playlist` WHERE `songID`='$songID' AND `userID`='$id' AND `playlistID`=$playlistID";
+              mysqli_query($conn, $sql);
+          }
+          ?>
+      </form>
+      </form>
+      <?php
+      }
+    }?>
+    </td>
   </tr>
   
 </table>
